@@ -88,6 +88,19 @@ const singleProduct=async(req,res)=>{
 
     try
     {
+        /*
+        const {productId} = req.body
+        req.body is an object with a productId field, and it assigns the value of req.body.productId directly to the variable productId
+
+        const req = { body: { productId: '12345', name: 'Test Product' } };
+        const { productId } = req.body; // productId = '12345'
+
+        const productId = req.body
+        This directly assigns the entire req.body object to productId
+
+        const req = { body: { productId: '12345', name: 'Test Product' } };
+        const productId = req.body; // productId = { productId: '12345', name: 'Test Product' }
+        */
         const {productId} = req.body
         const product = await productModel.findById(productId)
         res.json({success:true,product})
